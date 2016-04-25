@@ -30,7 +30,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.logOnButton:
                 //if verified user
+                String username = mSignInUsername.getText().toString();
+                String password = mSignInPassword.getText().toString();
                 Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                intent.putExtra("username", username);
+                intent.putExtra("password", password);
                 startActivity(intent);
                 break;
             default:
