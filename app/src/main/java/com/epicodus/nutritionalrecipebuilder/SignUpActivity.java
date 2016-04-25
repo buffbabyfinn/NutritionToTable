@@ -36,6 +36,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     String username = mSignUpUserName.getText().toString();
                     String password = mSignUpReenterPassword.getText().toString();
                     Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("password", password);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(SignUpActivity.this, "Please enter passwords that match!", Toast.LENGTH_LONG).show();
                 }
