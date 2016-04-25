@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.epicodus.nutritionalrecipebuilder.SignUpActivity"
+    android:background="@color/colorTertiaryLight">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInUsername"
+        android:background="@color/colorTextTertiary"
+        android:hint="Username"
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/colorTextSecondary"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_above="@+id/signInPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/signInPassword"
+        android:background="@color/colorTextTertiary"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Password:"
+        android:id="@+id/textView3"
+        android:textColor="@color/colorTextSecondary"
+        android:layout_above="@+id/signInPassword"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In:"
+        android:id="@+id/textView5"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:id="@+id/logOnButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:background="@color/colorSecondaryDark"
+        android:textColor="@color/colorTextTertiary" />
+</RelativeLayout>
