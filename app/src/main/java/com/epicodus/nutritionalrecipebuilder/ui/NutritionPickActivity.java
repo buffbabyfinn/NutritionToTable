@@ -1,5 +1,6 @@
 package com.epicodus.nutritionalrecipebuilder.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.epicodus.nutritionalrecipebuilder.R;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,10 +29,25 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.potassium_306) CheckBox mPotassium;
     @Bind(R.id.cholesterol_601) CheckBox mCholesterol;
     @Bind(R.id.findFoodsButton) Button mFindFoods;
-    private int mNutrient1;
-    private int mNutrient2;
-    private int mNutrient3;
-    private int[] mNutrientList = new int[];
+
+    private int proteinCode;
+    private int waterCode;
+    private int fatCode;
+    private int unsatFatCode;
+    private int vitCCode;
+    private int calciumCode;
+    private int carbCode;
+    private int fiberCode;
+    private int sugarCode;
+    private int ironCode;
+    private int potassiumCode;
+    private int cholesterolCode;
+
+    private Integer mNutrient1;
+    private Integer mNutrient2;
+    private Integer mNutrient3;
+
+    private ArrayList<Integer> mNutrientList = new ArrayList<>();
 
 
     @Override
@@ -70,10 +88,10 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                     fiberCode = 291;
                 }
                 if(mSugar.isChecked() == true) {
-                    ugarCode = 269;
+                    sugarCode = 269;
                 }
                 if(mIron.isChecked() == true) {
-                    fiberCode = 291;
+                    ironCode = 291;
                 }
                 if(mPotassium.isChecked() == true) {
                     potassiumCode = 306;
@@ -83,8 +101,51 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                 }
 
                 if(proteinCode > 0) {
-
+                    mNutrientList.add(proteinCode);
                 }
+                if(waterCode > 0) {
+                    mNutrientList.add(waterCode);
+                }
+                if(fatCode > 0) {
+                    mNutrientList.add(fatCode);
+                }
+                if(unsatFatCode > 0) {
+                    mNutrientList.add(unsatFatCode);
+                }
+                if(vitCCode > 0) {
+                    mNutrientList.add(vitCCode);
+                }
+                if(calciumCode > 0) {
+                    mNutrientList.add(calciumCode);
+                }
+                if(carbCode > 0) {
+                    mNutrientList.add(carbCode);
+                }
+                if(fiberCode > 0) {
+                    mNutrientList.add(fiberCode);
+                }
+                if(sugarCode > 0) {
+                    mNutrientList.add(sugarCode);
+                }
+                if(ironCode > 0) {
+                    mNutrientList.add(ironCode);
+                }
+                if(potassiumCode > 0) {
+                    mNutrientList.add(potassiumCode);
+                }
+                if(cholesterolCode > 0) {
+                    mNutrientList.add(cholesterolCode);
+                }
+
+                mNutrient1 = mNutrientList.get(0);
+                mNutrient2 = mNutrientList.get(1);
+                mNutrient3 = mNutrientList.get(2);
+
+                Intent intent = new Intent(NutritionPickActivity.this, FoodResultsActivity.class);
+                intent.putExtra("nutrient1", mNutrient1);
+                intent.putExtra("nutrient2", mNutrient2);
+                intent.putExtra("nutrient3", mNutrient3);
+                startActivity(intent);
                 break;
             default:
                 break;
