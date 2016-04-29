@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.NutritionPickActivity"
+    android:background="@color/colorTertiaryLight">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Foods"
+        android:id="@+id/findFoodsButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorSecondaryDark"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="@color/colorTextTertiary" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please pick the three nutrients you want most prevalent in your diet!"
+            android:id="@+id/textView6"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="@color/colorTextPrimary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein"
+            android:id="@+id/protein_203"
+            android:value="203"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fat"
+            android:id="@+id/fat_207"
+            android:value="207"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Water"
+            android:id="@+id/water_255"
+            android:value="255"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Polyunsaturated Fat"
+            android:id="@+id/unsatFat_646"
+            android:value="646"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carbohydrates"
+            android:id="@+id/carbs_205"
+            android:value="205"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sugars"
+            android:id="@+id/sugar_269"
+            android:value="269"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dietary Fiber"
+            android:id="@+id/fiber_291"
+            android:value="291"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcium"
+            android:id="@+id/calcium_301"
+            android:value="301"
+            android:layout_row="8"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potassium"
+            android:id="@+id/potassium_306"
+            android:value="306"
+            android:layout_row="9"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cholesterol"
+            android:id="@+id/cholesterol_601"
+            android:value="601"
+            android:layout_row="10"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vitamin C"
+            android:id="@+id/c_401"
+            android:value="401"
+            android:layout_row="11"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iron"
+            android:id="@+id/iron_303"
+            android:value="303"
+            android:layout_row="12"
+            android:layout_column="0"
+            android:textColor="@color/colorTextSecondary" />
+    </GridLayout>
+
+</RelativeLayout>

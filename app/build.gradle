@@ -18,6 +18,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        buildTypes.each {
+            it.buildConfigField 'String', 'NUTRITION_CONSUMER_KEY', 'NutritionConsumerKey'
+        }
     }
 }
 
@@ -38,5 +42,8 @@ dependencies {
     }
     androidTestCompile('com.android.support.test:runner:0.3') {
         exclude group: 'com.android.support', module: 'support-annotations'
+        compile 'com.squareup.okhttp3:okhttp:3.2.0'
+        compile 'com.squareup.okhttp3:okhttp:3.1.2'
+        compile 'se.akerfeldt:okhttp-signpost:1.1.0'
     }
 }
