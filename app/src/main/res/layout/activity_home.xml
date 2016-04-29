@@ -29,5 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="66dp"
         android:background="@color/colorSecondaryDark"
-        android:textColor="@color/colorTextTertiary" />
+        android:textColor="@color/colorTextTertiary"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 </RelativeLayout>

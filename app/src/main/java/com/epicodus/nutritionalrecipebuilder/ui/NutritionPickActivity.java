@@ -43,9 +43,9 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
     private int potassiumCode;
     private int cholesterolCode;
 
-    private Integer mNutrient1;
-    private Integer mNutrient2;
-    private Integer mNutrient3;
+    private String mNutrient1;
+    private String mNutrient2;
+    private String mNutrient3;
 
     private ArrayList<Integer> mNutrientList = new ArrayList<>();
 
@@ -137,9 +137,9 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                     mNutrientList.add(cholesterolCode);
                 }
 
-                mNutrient1 = mNutrientList.get(0);
-                mNutrient2 = mNutrientList.get(1);
-                mNutrient3 = mNutrientList.get(2);
+                mNutrient1 = mNutrientList.get(0).toString();
+                mNutrient2 = mNutrientList.get(1).toString();
+                mNutrient3 = mNutrientList.get(2).toString();
 
                 Intent intent = new Intent(NutritionPickActivity.this, FoodResultsActivity.class);
                 intent.putExtra("nutrient1", mNutrient1);

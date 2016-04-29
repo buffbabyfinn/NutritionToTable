@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.infoView) ListView mInfoView;
     @Bind(R.id.usernameTextView) TextView mUsernameTextView;
     @Bind(R.id.continueButton) Button mContinueButton;
 
