@@ -32,9 +32,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.registerButton:
-                if(mSignUpPassword == mSignUpReenterPassword) {
-                    String username = mSignUpUserName.getText().toString();
-                    String password = mSignUpReenterPassword.getText().toString();
+                String username = mSignUpUserName.getText().toString();
+                String password = mSignUpPassword.getText().toString();
+                String verification = mSignUpReenterPassword.getText().toString();
+                if(password.equals(verification)) {
                     Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
