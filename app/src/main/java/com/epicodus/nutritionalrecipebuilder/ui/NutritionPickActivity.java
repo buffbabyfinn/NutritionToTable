@@ -70,7 +70,7 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                     waterCode = 255;
                 }
                 if(mFat.isChecked() == true) {
-                    fatCode = 207;
+                    fatCode = 204;
                 }
                 if(mUnsatFat.isChecked() == true) {
                     unsatFatCode = 646;

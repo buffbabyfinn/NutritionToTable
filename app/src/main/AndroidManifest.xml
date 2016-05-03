@@ -32,21 +32,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.SignInActivity" />
         </activity>
-        <activity android:name=".ui.NutritionPickActivity" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.SignInActivity" />
+        <activity android:name=".ui.NutritionPickActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.SignInActivity" />
         </activity>
-        <activity android:name=".ui.FoodResultsActivity" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.NutritionPickActivity" />
+        <activity android:name=".ui.FoodResultsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NutritionPickActivity" />
         </activity>
-        <activity android:name=".ui.RecipeResultsActivity" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.NutritionPickActivity" />
+        <activity android:name=".ui.RecipeResultsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NutritionPickActivity" />
         </activity>
+        <activity android:name=".ui.FoodDetailActivity"></activity>
     </application>
 
 </manifest>

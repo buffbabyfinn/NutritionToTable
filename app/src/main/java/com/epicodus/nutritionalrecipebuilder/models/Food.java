@@ -1,37 +1,41 @@
 package com.epicodus.nutritionalrecipebuilder.models;
 
 import java.util.ArrayList;
+import org.parceler.Parcel;
 
 /**
  * Created by Guest on 4/29/16.
  */
+@Parcel
 public class Food {
-    private String mName;
-    private String mMeasure;
-    private ArrayList<String> mNutrient = new ArrayList<>();
-    private ArrayList<String> mUnit = new ArrayList<>();
+    private String name;
+    private String measure;
+    private ArrayList<String> nutrient = new ArrayList<>();
+    private ArrayList<String> unit = new ArrayList<>();
 
-    public Food(String mName, String mMeasure, ArrayList<String> mNutrient, ArrayList<String> mUnit) {
-        this.mName = mName;
-        this.mMeasure = mMeasure;
-        this.mNutrient = mNutrient;
-        this.mUnit = mUnit;
+    public Food() {}
+
+    public Food(String name, String measure, ArrayList<String> nutrient, ArrayList<String> unit) {
+        this.name = name;
+        this.measure = measure;
+        this.nutrient = nutrient;
+        this.unit = unit;
     }
 
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getMeasure() {
-        return mMeasure;
+        return measure;
     }
 
     public ArrayList<String> getNutrient() {
-        return mNutrient;
+        return nutrient;
     }
 
     public ArrayList<String> getUnit() {
-        return mUnit;
+        return unit;
     }
 }

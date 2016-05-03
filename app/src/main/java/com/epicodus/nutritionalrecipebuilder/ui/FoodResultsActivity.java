@@ -3,11 +3,14 @@ package com.epicodus.nutritionalrecipebuilder.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.epicodus.nutritionalrecipebuilder.R;
+import com.epicodus.nutritionalrecipebuilder.adapters.FoodsListAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
 import com.epicodus.nutritionalrecipebuilder.services.NutrientService;
 
@@ -22,8 +25,9 @@ import okhttp3.Response;
 
 public class FoodResultsActivity extends AppCompatActivity {
     public static final String TAG = FoodResultsActivity.class.getSimpleName();
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private FoodsListAdapter mAdapter;
     public ArrayList<Food> mFoods = new ArrayList<>();
-    @Bind(R.id.listView) ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,19 +58,14 @@ public class FoodResultsActivity extends AppCompatActivity {
                 FoodResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] foodNames = new String[mFoods.size()];
-                        for(int i = 0; i < foodNames.length; i++) {
-                            foodNames[i] = mFoods.get(i).getName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(FoodResultsActivity.this, android.R.layout.simple_list_item_2, foodNames);
-                        mListView.setAdapter(adapter);
+                        mAdapter = new FoodsListAdapter(getApplicationContext(), mFoods);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(FoodResultsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
 
-                        for(Food foodStuff : mFoods) {
-                            Log.d(TAG, "Name: " + foodStuff.getName());
-                            Log.d(TAG, "Measure: " + foodStuff.getMeasure());
-                            Log.d(TAG, "Nutrients: " + android.text.TextUtils.join(", ", foodStuff.getNutrient()));
-                            Log.d(TAG, "Units: " + foodStuff.getUnit().toString());
-                        }
+
                     }
                 });
 
