@@ -66,7 +66,7 @@ public class FoodsListAdapter extends RecyclerView.Adapter<FoodsListAdapter.Food
                     int itemPosition = getLayoutPosition();
                     Intent intent = new Intent(mContext, FoodDetailActivity.class);
                     intent.putExtra("position", itemPosition + "");
-                    intent.putExtra("restaurants", Parcels.wrap(mFoods));
+                    intent.putExtra("foods", Parcels.wrap(mFoods));
                     mContext.startActivity(intent);
                 }
             });
