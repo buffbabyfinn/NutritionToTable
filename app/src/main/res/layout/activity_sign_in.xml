@@ -15,7 +15,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/signInUsername"
         android:background="@color/colorTextTertiary"
-        android:hint="Username"
+        android:hint="Email"
+        android:ems="10"
+        android:textAlignment="center"
         android:inputType="textNoSuggestions"
         android:textColor="@color/colorTextSecondary"
         android:paddingLeft="8dp"
@@ -41,6 +43,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Password:"
         android:id="@+id/textView3"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/colorTextSecondary"
         android:layout_above="@+id/signInPassword"
         android:layout_centerHorizontal="true" />
@@ -58,13 +61,15 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign In"
         android:id="@+id/logOnButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
         android:background="@color/colorSecondaryDark"
-        android:textColor="@color/colorTextTertiary" />
+        android:textColor="@color/colorTextTertiary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -16,5 +16,10 @@ public class Constants {
     public static final String FIREBASE_NUTRIENT_FOODS = "foods";
     public static final String FIREBASE_URL_FOODS = FIREBASE_URL + "/" + FIREBASE_NUTRIENT_FOODS;
 
+    public static final String FIREBASE_NUTRIENT_USERS = "users";
+    public static final String FIREBASE_PROPERTY_EMAIL = "email";
+    public static final String KEY_UID = "UID";
+    public static final String FIREBASE_URL_USERS = FIREBASE_URL + "/" + FIREBASE_NUTRIENT_USERS;
+
 
 }
