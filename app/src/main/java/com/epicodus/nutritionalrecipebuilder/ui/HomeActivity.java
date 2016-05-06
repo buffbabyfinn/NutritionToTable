@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.usernameTextView) TextView mUsernameTextView;
     @Bind(R.id.continueButton) Button mContinueButton;
+    @Bind(R.id.savedFoodButton) Button mSaveButton;
 
 
     @Override
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mContinueButton.setOnClickListener(this);
+        mSaveButton.setOnClickListener(this);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -40,6 +42,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                Intent intention = new Intent(HomeActivity.this, NutritionPickActivity.class);
                startActivity(intention);
                break;
+           case R.id.savedFoodButton:
+               Intent intent = new Intent(HomeActivity.this, SavedFoodListActivity.class);
+               startActivity(intent);
            default:
                break;
        }

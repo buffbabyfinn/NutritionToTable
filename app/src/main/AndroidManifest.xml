@@ -48,7 +48,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.NutritionPickActivity" />
         </activity>
-        <activity android:name=".ui.FoodDetailActivity"></activity>
+        <activity android:name=".ui.FoodDetailActivity" />
+        <activity android:name=".ui.SavedFoodListActivity"></activity>
     </application>
 
 </manifest>
