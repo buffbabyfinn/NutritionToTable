@@ -4,50 +4,46 @@
     android:layout_height="match_parent"
     tools:context="com.epicodus.nutritionalrecipebuilder.ui.FoodDetailFragment">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-       <RelativeLayout
+    <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:background="@android:color/white"
            android:paddingTop="100dp"
-           android:paddingLeft="40dp"
+           android:paddingLeft="25dp"
            android:paddingRight="10dp"
            android:paddingBottom="20dp">
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Food Name"
-           android:id="@+id/foodNameTextView"
-           android:layout_alignParentLeft="true"
-           android:layout_alignParentStart="true"
-           android:textSize="20sp"
-           android:textColor="@color/colorTextPrimary"
-           android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Name"
+            android:id="@+id/foodNameTextView"
+            android:layout_alignParentLeft="true"
+            android:visibility="visible"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="65dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorTextPrimary"
+            android:textStyle="bold" />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Food Measure"
-           android:id="@+id/foodMeasureTextView"
-           android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Measure"
+            android:visibility="visible"
+            android:id="@+id/foodMeasureTextView"
+            android:layout_alignParentRight="true"/>
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Fiber, Fat, Potassium"
-           android:id="@+id/foodNutrientsTextView"
-           android:layout_below="@+id/foodNameTextView"
-           android:textStyle="italic"
-           android:paddingTop="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fiber, Fat, Potassium"
+            android:id="@+id/foodNutrientsTextView"
+            android:layout_below="@+id/foodNameTextView"
+            android:textStyle="italic"
+            android:paddingTop="15dp"/>
 
-       </RelativeLayout>
-
-
-   </LinearLayout>
+    </RelativeLayout>
 
    <Button
        android:layout_width="match_parent"

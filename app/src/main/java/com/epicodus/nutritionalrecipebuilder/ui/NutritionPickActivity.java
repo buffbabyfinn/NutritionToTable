@@ -3,12 +3,18 @@ package com.epicodus.nutritionalrecipebuilder.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -30,25 +36,9 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.cholesterol_601) CheckBox mCholesterol;
     @Bind(R.id.findFoodsButton) Button mFindFoods;
 
-    private int proteinCode;
-    private int waterCode;
-    private int fatCode;
-    private int unsatFatCode;
-    private int vitCCode;
-    private int calciumCode;
-    private int carbCode;
-    private int fiberCode;
-    private int sugarCode;
-    private int ironCode;
-    private int potassiumCode;
-    private int cholesterolCode;
-
-    private String mNutrient1;
-    private String mNutrient2;
-    private String mNutrient3;
-
-    private ArrayList<Integer> mNutrientList = new ArrayList<>();
-
+    private Firebase mSearchedNutrientRef;
+    private ValueEventListener mSearchedNutrientRefListener;
+    private String mNutrientCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,87 +54,45 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
         switch (v.getId()) {
             case R.id.findFoodsButton:
                 if(mProtein.isChecked() == true) {
-                    proteinCode = 203;
+                    mNutrientCode = "203";
                 }
                 if(mWater.isChecked() == true) {
-                    waterCode = 255;
+                    mNutrientCode = "255";
                 }
                 if(mFat.isChecked() == true) {
-                    fatCode = 204;
+                    mNutrientCode = "204";
                 }
                 if(mUnsatFat.isChecked() == true) {
-                    unsatFatCode = 646;
+                    mNutrientCode = "646";
                 }
                 if(mVitC.isChecked() == true) {
-                    vitCCode = 401;
+                    mNutrientCode = "401";
                 }
                 if(mCalcium.isChecked() == true) {
-                    calciumCode = 301;
+                    mNutrientCode = "301";
                 }
                 if(mCarbs.isChecked() == true) {
-                    carbCode = 205;
+                    mNutrientCode = "205";
                 }
                 if(mFiber.isChecked() == true) {
-                    fiberCode = 291;
+                    mNutrientCode = "291";
                 }
                 if(mSugar.isChecked() == true) {
-                    sugarCode = 269;
+                    mNutrientCode = "269";
                 }
                 if(mIron.isChecked() == true) {
-                    ironCode = 291;
+                    mNutrientCode = "303";
                 }
                 if(mPotassium.isChecked() == true) {
-                    potassiumCode = 306;
+                    mNutrientCode = "306";
                 }
                 if(mCholesterol.isChecked() == true) {
-                    cholesterolCode = 601;
+                    mNutrientCode = "601";
                 }
 
-                if(proteinCode > 0) {
-                    mNutrientList.add(proteinCode);
-                }
-                if(waterCode > 0) {
-                    mNutrientList.add(waterCode);
-                }
-                if(fatCode > 0) {
-                    mNutrientList.add(fatCode);
-                }
-                if(unsatFatCode > 0) {
-                    mNutrientList.add(unsatFatCode);
-                }
-                if(vitCCode > 0) {
-                    mNutrientList.add(vitCCode);
-                }
-                if(calciumCode > 0) {
-                    mNutrientList.add(calciumCode);
-                }
-                if(carbCode > 0) {
-                    mNutrientList.add(carbCode);
-                }
-                if(fiberCode > 0) {
-                    mNutrientList.add(fiberCode);
-                }
-                if(sugarCode > 0) {
-                    mNutrientList.add(sugarCode);
-                }
-                if(ironCode > 0) {
-                    mNutrientList.add(ironCode);
-                }
-                if(potassiumCode > 0) {
-                    mNutrientList.add(potassiumCode);
-                }
-                if(cholesterolCode > 0) {
-                    mNutrientList.add(cholesterolCode);
-                }
-
-                mNutrient1 = mNutrientList.get(0).toString();
-                mNutrient2 = mNutrientList.get(1).toString();
-                mNutrient3 = mNutrientList.get(2).toString();
 
                 Intent intent = new Intent(NutritionPickActivity.this, FoodResultsActivity.class);
-                intent.putExtra("nutrient1", mNutrient1);
-                intent.putExtra("nutrient2", mNutrient2);
-                intent.putExtra("nutrient3", mNutrient3);
+                intent.putExtra("nutrient", mNutrientCode.toString());
                 startActivity(intent);
                 break;
             default:

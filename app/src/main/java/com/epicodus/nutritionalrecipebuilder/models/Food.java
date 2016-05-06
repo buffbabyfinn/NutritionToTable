@@ -1,6 +1,8 @@
 package com.epicodus.nutritionalrecipebuilder.models;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.parceler.Parcel;
 
 /**
@@ -10,12 +12,12 @@ import org.parceler.Parcel;
 public class Food {
     private String name;
     private String measure;
-    private ArrayList<String> nutrient = new ArrayList<>();
-    private ArrayList<String> unit = new ArrayList<>();
+    private List<String> nutrient = new ArrayList<>();
+    private List<String> unit = new ArrayList<>();
 
     public Food() {}
 
-    public Food(String name, String measure, ArrayList<String> nutrient, ArrayList<String> unit) {
+    public Food(String name, String measure, List<String> nutrient, List<String> unit) {
         this.name = name;
         this.measure = measure;
         this.nutrient = nutrient;
@@ -31,11 +33,11 @@ public class Food {
         return measure;
     }
 
-    public ArrayList<String> getNutrient() {
+    public List<String> getNutrient() {
         return nutrient;
     }
 
-    public ArrayList<String> getUnit() {
+    public List<String> getUnit() {
         return unit;
     }
 }

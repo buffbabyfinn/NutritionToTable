@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Please pick the three nutrients you want most prevalent in your diet!"
+                android:text="Pick one nutrient you&apos;d like most prevalent in your diet! Save the food items you like, and start building your new, personalized, diet!"
                 android:id="@+id/textView6"
                 android:layout_row="0"
                 android:layout_column="0"

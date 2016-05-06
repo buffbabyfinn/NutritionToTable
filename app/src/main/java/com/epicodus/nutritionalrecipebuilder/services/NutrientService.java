@@ -24,7 +24,7 @@ import okhttp3.Response;
  * Created by Guest on 4/29/16.
  */
 public class NutrientService {
-    public static void findFoods(String nutrient1, String nutrient2, String nutrient3, Callback callback) {
+    public static void findFoods(String nutrient, Callback callback) {
         String CONSUMER_KEY = Constants.NUTRITION_CONSUMER_KEY;
 
         OkHttpClient client = new OkHttpClient.Builder()
@@ -32,7 +32,7 @@ public class NutrientService {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.NUTRITION_BASE_URL).newBuilder();
         String urlFront = urlBuilder.toString();
-        String urlComplete = urlFront + CONSUMER_KEY + Constants.NUTRIENT_MAX_PARAMETER + Constants.NUTRITION_NUTRIENT_PARAMETER + nutrient1 + Constants.NUTRITION_NUTRIENT_PARAMETER + nutrient2 + Constants.NUTRITION_NUTRIENT_PARAMETER + nutrient3 + Constants.NUTRIENT_FOODGROUP_FILTER + Constants.NUTRITION_NUTRIENT_SORT_PARAMETER;
+        String urlComplete = urlFront + CONSUMER_KEY + Constants.NUTRIENT_MAX_PARAMETER + Constants.NUTRITION_NUTRIENT_PARAMETER + nutrient + Constants.NUTRIENT_FOODGROUP_FILTER + Constants.NUTRITION_NUTRIENT_SORT_PARAMETER;
 
         Request request = new Request.Builder()
                 .url(urlComplete)
@@ -49,7 +49,6 @@ public class NutrientService {
             String jsonData = response.body().string();
             if(response.isSuccessful()) {
                 JSONObject json = new JSONObject(jsonData);
-
                 JSONObject reportJSON = json.getJSONObject("report");
                 JSONArray foodsJSON = reportJSON.getJSONArray("foods");
 
