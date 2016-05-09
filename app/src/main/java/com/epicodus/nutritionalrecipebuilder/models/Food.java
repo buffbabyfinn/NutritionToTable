@@ -14,6 +14,7 @@ public class Food {
     private String measure;
     private List<String> nutrient = new ArrayList<>();
     private List<String> unit = new ArrayList<>();
+    private String pushId;
 
     public Food() {}
 
@@ -24,6 +25,13 @@ public class Food {
         this.unit = unit;
     }
 
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
 
     public String getName() {
         return name;

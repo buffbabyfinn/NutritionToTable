@@ -1,5 +1,7 @@
 package com.epicodus.nutritionalrecipebuilder.ui;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ public class SavedFoodListActivity extends AppCompatActivity {
     private Query mQuery;
     private Firebase mFirebaseFoodsRef;
     private FirebaseFoodsListAdapter mAdapter;
+    private SharedPreferences mSharedPreferences;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
@@ -29,13 +32,15 @@ public class SavedFoodListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mFirebaseFoodsRef = new Firebase(Constants.FIREBASE_URL_FOODS);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setUpFirebaseQuery();
         setUpRecyclerView();
     }
 
     private void setUpFirebaseQuery() {
-        String food = mFirebaseFoodsRef.toString();
+        String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
+        String food = mFirebaseFoodsRef.child(userUid).toString();
         mQuery = new Firebase(food);
     }
 

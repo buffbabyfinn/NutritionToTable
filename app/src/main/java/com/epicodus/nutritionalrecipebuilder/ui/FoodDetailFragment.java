@@ -1,7 +1,9 @@
 package com.epicodus.nutritionalrecipebuilder.ui;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,7 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     @Bind(R.id.foodMeasureTextView) TextView mMeasureView;
     @Bind(R.id.foodNutrientsTextView) TextView mNutrientsView;
     @Bind(R.id.saveFoodButton) Button mSaveFoodButton;
+    private SharedPreferences mSharedPreferences;
 
     private Food mFood;
 
@@ -43,6 +46,7 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFood = Parcels.unwrap(getArguments().getParcelable("food"));
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
     }
 
     @Override
@@ -61,8 +65,12 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.saveFoodButton:
-                Firebase ref = new Firebase(Constants.FIREBASE_URL_FOODS);
-                ref.push().setValue(mFood);
+                String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
+                Firebase userFoodFirebaseRef = new Firebase(Constants.FIREBASE_URL_FOODS).child(userUid);
+                Firebase pushRef = userFoodFirebaseRef.push();
+                String foodPushId = pushRef.getKey();
+                mFood.setPushId(foodPushId);
+                pushRef.setValue(mFood);
                 Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
         }
     }

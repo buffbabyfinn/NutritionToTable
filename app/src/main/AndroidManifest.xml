@@ -18,37 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SignUpActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
-        </activity>
-        <activity android:name=".ui.SignInActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
-        </activity>
-        <activity android:name=".ui.HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.SignInActivity" />
-        </activity>
-        <activity android:name=".ui.NutritionPickActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.SignInActivity" />
-        </activity>
-        <activity android:name=".ui.FoodResultsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.NutritionPickActivity" />
-        </activity>
-        <activity android:name=".ui.RecipeResultsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.NutritionPickActivity" />
-        </activity>
-        <activity android:name=".ui.FoodDetailActivity" />
+        <activity android:name=".ui.SignUpActivity"></activity>
+        <activity android:name=".ui.SignInActivity"></activity>
+        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.NutritionPickActivity"></activity>
+        <activity android:name=".ui.FoodResultsActivity"></activity>
+        <activity android:name=".ui.RecipeResultsActivity"></activity>
+        <activity android:name=".ui.FoodDetailActivity"></activity>
         <activity android:name=".ui.SavedFoodListActivity"></activity>
     </application>
 
