@@ -52,9 +52,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.registerButton:
                 createNewUser();
-                Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
-                startActivity(intent);
-
+//                Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+//                startActivity(intent);
         }
     }
 
@@ -71,13 +70,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mFirebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String, Object> result) {
-                String uid = result.get("uid").toString();
-                createUserInFirebaseHelper(username, email, uid);
                 mFirebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
                     @Override
                     public void onAuthenticated(AuthData authData) {
                         if (authData != null) {
                             String userUid = authData.getUid();
+                            createUserInFirebaseHelper(username, email, userUid);
                             mSharedPreferencesEditor.putString(Constants.KEY_UID, userUid).apply();
                             Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -114,6 +112,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void createUserInFirebaseHelper(final String name, final String email, final String uid) {
+        Log.d("user id", uid);
         final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
         User newUser = new User(name, email);
         userLocation.setValue(newUser);
