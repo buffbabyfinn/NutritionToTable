@@ -26,8 +26,8 @@
         android:layout_marginTop="29dp"
         android:paddingTop="55dp"
         android:paddingBottom="55dp"
-        android:elevation="5dp"
-        android:background="@color/colorPrimaryLight"/>
+        android:elevation="10dp"
+        android:background="@drawable/rounded_corners_light_orange" />
 
     <LinearLayout
         android:orientation="vertical"

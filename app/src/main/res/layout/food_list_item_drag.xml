@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:alpha=".75"
+    android:background="@color/colorPrimaryBright">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:id="@+id/foodListView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/foodName"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Food Name"
+            android:textColor="@color/colorComplementary"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/foodNutrients"
+            android:text="One Nutrient"
+            android:textStyle="italic"
+            android:textColor="@color/colorComplementaryBright"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/foodMeasure"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/colorPurple"
+                android:text="Measure"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/dragIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="bottom|left"
+                android:src="@drawable/ic_reorder_black_24dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

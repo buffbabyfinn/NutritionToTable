@@ -7,12 +7,12 @@
     <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:background="@color/colorGreenBright"
+           android:background="@drawable/rounded_corners_bright_green"
            android:paddingTop="100dp"
            android:paddingLeft="25dp"
            android:paddingRight="10dp"
            android:paddingBottom="20dp"
-            android:elevation="5dp">
+            android:elevation="7dp">
 
         <TextView
             android:layout_width="wrap_content"

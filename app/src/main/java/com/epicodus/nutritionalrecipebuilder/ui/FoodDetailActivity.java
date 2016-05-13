@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.adapters.FoodPagerAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
+import com.epicodus.nutritionalrecipebuilder.util.ScaleAndFadePageTransformer;
 
 import org.parceler.Parcels;
 
@@ -30,5 +31,6 @@ public class FoodDetailActivity extends AppCompatActivity {
         adapterViewPager = new FoodPagerAdapter(getSupportFragmentManager(), mFoods);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
+        mViewPager.setPageTransformer(true, new ScaleAndFadePageTransformer());
     }
 }

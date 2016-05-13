@@ -16,6 +16,8 @@ public class Food {
     private List<String> unit = new ArrayList<>();
     private String pushId;
 
+    private String index;
+
     public Food() {}
 
     public Food(String name, String measure, List<String> nutrient, List<String> unit) {
@@ -23,14 +25,23 @@ public class Food {
         this.measure = measure;
         this.nutrient = nutrient;
         this.unit = unit;
+        this.index = "not_specified";
     }
 
-    public void setPushId(String pushId) {
-        this.pushId = pushId;
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getPushId() {
         return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public String getName() {

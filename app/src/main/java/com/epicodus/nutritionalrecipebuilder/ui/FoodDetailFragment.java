@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     @Bind(R.id.foodNameTextView) TextView mFoodView;
     @Bind(R.id.foodMeasureTextView) TextView mMeasureView;
     @Bind(R.id.foodNutrientsTextView) TextView mNutrientsView;
+    @Bind(R.id.foodListView) LinearLayout mFoodListView;
     @Bind(R.id.saveFoodButton) Button mSaveFoodButton;
     private SharedPreferences mSharedPreferences;
 

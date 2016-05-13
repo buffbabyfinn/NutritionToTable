@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
 import com.epicodus.nutritionalrecipebuilder.ui.FoodDetailActivity;
+import com.epicodus.nutritionalrecipebuilder.util.ItemTouchHelperViewHolder;
 
 import org.parceler.Parcels;
 
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by Guest on 5/6/16.
  */
 
-public class FoodViewHolder extends RecyclerView.ViewHolder {
+public class FoodViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     @Bind(R.id.foodName) TextView mNameView;
     @Bind(R.id.foodMeasure) TextView mMeasureView;
     @Bind(R.id.foodNutrients) TextView mNutrientView;
@@ -50,6 +51,23 @@ public class FoodViewHolder extends RecyclerView.ViewHolder {
         mNameView.setText(food.getName());
         mMeasureView.setText(food.getMeasure());
         mNutrientView.setText(food.getNutrient().get(0));
+    }
+
+    @Override
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
+    }
+
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
     }
 }
 
