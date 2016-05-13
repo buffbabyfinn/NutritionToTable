@@ -8,7 +8,6 @@ import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
 import com.epicodus.nutritionalrecipebuilder.util.FirebaseRecyclerAdapter;
 import com.firebase.client.Query;
-import com.firebase.client.Firebase;
 
 /**
  * Created by Guest on 5/6/16.
@@ -22,7 +21,7 @@ public class FirebaseFoodsListAdapter extends FirebaseRecyclerAdapter<FoodViewHo
     @Override
     public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.foods_list_item, parent, false);
+                .inflate(R.layout.food_list_item, parent, false);
         return new FoodViewHolder(view, getItems());
     }
 

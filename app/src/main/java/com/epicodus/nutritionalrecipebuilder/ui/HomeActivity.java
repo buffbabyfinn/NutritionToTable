@@ -78,7 +78,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
         if (id == R.id.action_logout) {
             logout();
-            return true;
+
+
         }
         return super.onOptionsItemSelected(item);
     }
