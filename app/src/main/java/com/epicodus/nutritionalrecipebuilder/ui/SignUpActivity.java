@@ -26,10 +26,10 @@ import butterknife.ButterKnife;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = SignUpActivity.class.getSimpleName();
     @Bind(R.id.registerButton) Button mRegisterButton;
-    @Bind(R.id.signUpUsername) EditText mSignUpUserName;
-    @Bind(R.id.signUpPassword) EditText mSignUpPassword;
-    @Bind(R.id.signUpEmail) EditText mSignUpEmail;
-    @Bind(R.id.signUpReenterPassword) EditText mSignUpReenterPassword;
+    @Bind(R.id.nameEditText) EditText mSignUpUserName;
+    @Bind(R.id.passwordEditText) EditText mSignUpPassword;
+    @Bind(R.id.emailEditText) EditText mSignUpEmail;
+    @Bind(R.id.confirmPasswordEditText) EditText mSignUpReenterPassword;
     private Firebase mFirebaseRef;
     private SharedPreferences.Editor mSharedPreferencesEditor;
     private SharedPreferences mSharedPreferences;

@@ -8,100 +8,101 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.SignUpActivity"
-    android:background="@color/colorTertiaryLight">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/signUpUsername"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorTextTertiary"
-        android:hint="Your Name"
-        android:inputType="textNoSuggestions"
-        android:textColor="@color/colorTextSecondary"
-        android:ems="10"
-        android:textAlignment="center"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/signUpPassword"
-        android:background="@color/colorTextTertiary"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/signUpReenterPassword"
-        android:layout_alignStart="@+id/signUpReenterPassword" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/signUpReenterPassword"
-        android:background="@color/colorTextTertiary"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
+    android:background="@color/colorPrimaryBright">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Please choose a password:"
-        android:id="@+id/textView3"
-        android:textColor="@color/colorTextSecondary"
-        android:layout_above="@+id/signUpPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Please Reenter Chosen Password:"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/signUpPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up!"
         android:id="@+id/textView5"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:paddingTop="55dp"
+        android:paddingBottom="55dp"
+        android:elevation="5dp"
+        android:background="@color/colorPrimaryLight"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:elevation="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView5">
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Name"
+            android:textColorHint="@color/colorTextSecondary"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:textColorHint="@color/colorTextSecondary"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:hint="Password"
+            android:textColorHint="@color/colorTextSecondary"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Confirm password"
+            android:textColorHint="@color/colorTextSecondary"
+            android:textSize="20sp"/>
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/registerButton"
-        android:background="@color/colorSecondaryDark"
+        android:background="@color/colorPurpleBright"
         android:textColor="@color/colorTextTertiary"
+        android:textSize="18sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"
+        android:elevation="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/signUpEmail"
-        android:hint="Your Email"
-        android:background="@color/colorTextTertiary"
-        android:textAlignment="center"
-        android:layout_below="@id/signUpUsername"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
+    </LinearLayout>
 </RelativeLayout>

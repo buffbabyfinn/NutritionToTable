@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = SignInActivity.class.getSimpleName();
-    @Bind(R.id.signInUsername) EditText mSignInUsername;
-    @Bind(R.id.signInPassword) EditText mSignInPassword;
+    @Bind(R.id.emailEditText) EditText mSignInUsername;
+    @Bind(R.id.passwordEditText) EditText mSignInPassword;
     @Bind(R.id.logOnButton) Button mLogOnButton;
     @Bind(R.id.registerTextView) TextView mRegisterTextView;
     private Firebase mFirebaseRef;

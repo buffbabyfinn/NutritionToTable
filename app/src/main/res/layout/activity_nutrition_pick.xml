@@ -8,29 +8,32 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.NutritionPickActivity"
-    android:background="@color/colorTertiaryLight">
+    android:background="@color/colorGreenLight">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Foods"
         android:id="@+id/findFoodsButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorSecondaryDark"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textColor="@color/colorTextTertiary" />
+        android:background="@color/colorPurpleBright"
+        android:textColor="@color/colorTextTertiary"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/findFoodsButton">
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:scrollIndicators="right">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -2,12 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="2dp"
+    android:elevation="5dp"
+    android:background="@color/colorPrimaryBright"
+    android:alpha=".75">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -16,7 +21,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="Food Name"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="@color/colorComplementary"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +29,7 @@
             android:id="@+id/foodNutrients"
             android:text="One Nutrient"
             android:textStyle="italic"
-            android:textColor="@color/colorTextSecondary"
+            android:textColor="@color/colorComplementaryBright"
             />
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,10 +38,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/foodMeasure"
-                android:text="@color/colorTextSecondary"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:textColor="@color/colorTextSecondary"/>
+                android:textColor="@color/colorPurple"
+                android:text="Measure"
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
 

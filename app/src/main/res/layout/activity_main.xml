@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".ui.MainActivity"
-    android:background="@color/colorSecondaryLight">
+    android:background="@color/colorPrimaryLight">
 
 
     <TextView
@@ -31,7 +31,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@color/colorTextTertiary"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorPurpleBright"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,12 +41,14 @@
         android:text="Sign In"
         android:id="@+id/signInButton"
         android:textColor="@color/colorTextTertiary"
-        android:background="@color/colorTertiaryDark"
+        android:background="@color/colorComplementaryBright"
         android:layout_above="@+id/signUpButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/signUpButton"
-        android:layout_alignEnd="@+id/signUpButton" />
+        android:layout_alignEnd="@+id/signUpButton"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
