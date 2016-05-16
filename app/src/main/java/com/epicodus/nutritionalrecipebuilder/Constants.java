@@ -34,7 +34,8 @@ public class Constants {
     public static final String RECIPE_BASE_URL = "https://api.yummly.com/v1/api/recipes?";
     public static final String RECIPE_ID_PARAMETER = "_app+id=";
     public static final String RECIPE_KEY_PARAMETER = "&_app_key";
-    public static final String RECIPE_SEARCH_PARAMETER = "q="
+    public static final String RECIPE_SEARCH_PARAMETER = "q=";
+    public static final String RECIPE_ALLOWED_INGREDIENT_PARAMETER = "&allowedIngredient[]=";
 
 
 }
