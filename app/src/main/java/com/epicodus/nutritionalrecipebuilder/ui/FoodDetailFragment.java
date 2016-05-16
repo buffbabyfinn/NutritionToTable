@@ -28,11 +28,11 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodDetailFragment extends Fragment implements View.OnClickListener {
+public class FoodDetailFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.foodNameTextView) TextView mFoodView;
     @Bind(R.id.foodMeasureTextView) TextView mMeasureView;
     @Bind(R.id.foodNutrientsTextView) TextView mNutrientsView;
-    @Bind(R.id.foodListView) LinearLayout mFoodListView;
+    //@Bind(R.id.foodListView) LinearLayout mFoodListView;
     @Bind(R.id.saveFoodButton) Button mSaveFoodButton;
     private SharedPreferences mSharedPreferences;
 

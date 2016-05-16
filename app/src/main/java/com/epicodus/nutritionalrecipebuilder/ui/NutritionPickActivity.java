@@ -1,22 +1,18 @@
 package com.epicodus.nutritionalrecipebuilder.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 
 import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-
-import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -49,9 +45,9 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.niacin) CheckBox mNiacin;
     @Bind(R.id.findFoodsButton) Button mFindFoods;
 
-    private Firebase mSearchedNutrientRef;
-    private ValueEventListener mSearchedNutrientRefListener;
     private String mNutrientCode;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mSharedPreferencesEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,16 +138,19 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                     mNutrientCode = "406";
                 }
 
+                mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+                mSharedPreferencesEditor = mSharedPreferences.edit();
+                addToSharedPreferences(mNutrientCode);
 
-
-                Intent intent = new Intent(NutritionPickActivity.this, FoodResultsActivity.class);
-                intent.putExtra("nutrient", mNutrientCode.toString());
+                Intent intent = new Intent(NutritionPickActivity.this, FoodListActivity.class);
                 startActivity(intent);
                 break;
             default:
                 break;
         }
+    }
 
-
+    private void addToSharedPreferences(String nutrient) {
+        mSharedPreferencesEditor.putString(Constants.PREFERENCES_FOODS_KEY, nutrient).apply();
     }
 }
