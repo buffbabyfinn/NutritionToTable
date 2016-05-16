@@ -22,7 +22,7 @@ public class FoodPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return FoodDetailFragment.newInstance(mFoods.get(position));
+        return FoodDetailFragment.newInstance(mFoods, position);
     }
 
     @Override

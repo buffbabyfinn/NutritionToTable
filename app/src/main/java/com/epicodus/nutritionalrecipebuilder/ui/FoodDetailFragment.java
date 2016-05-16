@@ -20,6 +20,8 @@ import com.firebase.client.Firebase;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -36,10 +38,16 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
 
     private Food mFood;
 
-    public static FoodDetailFragment newInstance(Food food) {
+    private Integer mPosition;
+    private ArrayList<Food> mFoods;
+
+    public static FoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
         FoodDetailFragment foodDetailFragment = new FoodDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("food", Parcels.wrap(food));
+
+        args.putParcelable(Constants.EXTRA_KEY_FOODS, Parcels.wrap(foods));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         foodDetailFragment.setArguments(args);
         return foodDetailFragment;
     }
@@ -47,8 +55,10 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFood = Parcels.unwrap(getArguments().getParcelable("food"));
+        mFoods = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_FOODS));
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mFood = mFoods.get(mPosition);
     }
 
     @Override
