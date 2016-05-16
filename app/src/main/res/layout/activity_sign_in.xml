@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Sign In:"
         android:id="@+id/textView5"
-        android:background="@drawable/rounded_corners_light_orange"
+        android:background="@drawable/rounded_corners_light_primary"
         android:textStyle="bold"
         android:textColor="@color/colorTextPrimary"
         android:textSize="40sp"

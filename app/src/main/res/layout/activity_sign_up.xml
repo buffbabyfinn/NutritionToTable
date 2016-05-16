@@ -27,7 +27,7 @@
         android:paddingTop="55dp"
         android:paddingBottom="55dp"
         android:elevation="10dp"
-        android:background="@drawable/rounded_corners_light_orange" />
+        android:background="@drawable/rounded_corners_light_primary" />
 
     <LinearLayout
         android:orientation="vertical"
