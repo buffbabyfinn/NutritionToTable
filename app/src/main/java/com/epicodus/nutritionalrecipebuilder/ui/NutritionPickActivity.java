@@ -34,6 +34,19 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.iron_303) CheckBox mIron;
     @Bind(R.id.potassium_306) CheckBox mPotassium;
     @Bind(R.id.cholesterol_601) CheckBox mCholesterol;
+    @Bind(R.id.phosph_305) CheckBox mPhosphorus;
+    @Bind(R.id.alcohol_221) CheckBox mAlcohol;
+    @Bind(R.id.caffeine) CheckBox mCaffeine;
+    @Bind(R.id.magnesium) CheckBox mMagnesium;
+    @Bind(R.id.zinc) CheckBox mZinc;
+    @Bind(R.id.manganese) CheckBox mManganese;
+    @Bind(R.id.vitA) CheckBox mVitA;
+    @Bind(R.id.betaCarotene) CheckBox mBetaCartoene;
+    @Bind(R.id.vitE) CheckBox mVitE;
+    @Bind(R.id.vitD) CheckBox mVitD;
+    @Bind(R.id.folicAcid) CheckBox mFolicAcid;
+    @Bind(R.id.vitB) CheckBox mVitB;
+    @Bind(R.id.niacin) CheckBox mNiacin;
     @Bind(R.id.findFoodsButton) Button mFindFoods;
 
     private Firebase mSearchedNutrientRef;
@@ -89,6 +102,46 @@ public class NutritionPickActivity extends AppCompatActivity implements View.OnC
                 if(mCholesterol.isChecked() == true) {
                     mNutrientCode = "601";
                 }
+                if (mPhosphorus.isChecked() == true) {
+                    mNutrientCode = "305";
+                }
+                if (mAlcohol.isChecked() == true) {
+                    mNutrientCode = "221";
+                }
+                if (mCaffeine.isChecked() == true) {
+                    mNutrientCode = "262";
+                }
+                if (mMagnesium.isChecked() == true) {
+                    mNutrientCode = "304";
+                }
+                if (mZinc.isChecked() == true) {
+                    mNutrientCode = "309";
+                }
+                if (mManganese.isChecked() == true) {
+                    mNutrientCode = "315";
+                }
+                if (mVitA.isChecked() == true) {
+                    mNutrientCode = "318";
+                }
+                if (mBetaCartoene.isChecked() == true) {
+                    mNutrientCode = "321";
+                }
+                if (mVitE.isChecked() == true) {
+                    mNutrientCode = "323";
+                }
+                if (mVitD.isChecked() == true) {
+                    mNutrientCode = "324";
+                }
+                if (mFolicAcid.isChecked() == true) {
+                    mNutrientCode = "431";
+                }
+                if (mVitB.isChecked() == true) {
+                    mNutrientCode = "418";
+                }
+                if (mNiacin.isChecked() == true) {
+                    mNutrientCode = "406";
+                }
+
 
 
                 Intent intent = new Intent(NutritionPickActivity.this, FoodResultsActivity.class);

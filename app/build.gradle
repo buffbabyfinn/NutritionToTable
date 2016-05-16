@@ -38,6 +38,7 @@ android {
     buildTypes.each {
         it.buildConfigField 'String', 'NUTRITION_CONSUMER_KEY', NutritionConsumerKey
         it.buildConfigField 'String', 'FIREBASE_ROOT_URL', FirebaseRootUrl
+        it.buildConfigField 'String', 'RECIPE_CONSUMER_KEY', RecipeConsumerKey
     }
 }
 
