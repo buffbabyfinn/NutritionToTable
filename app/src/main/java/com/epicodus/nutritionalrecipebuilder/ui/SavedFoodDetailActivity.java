@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.epicodus.nutritionalrecipebuilder.R;
-import com.epicodus.nutritionalrecipebuilder.adapters.FoodPagerAdapter;
 import com.epicodus.nutritionalrecipebuilder.adapters.SavedFoodPagerAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
 import com.epicodus.nutritionalrecipebuilder.util.ScaleAndFadePageTransformer;
@@ -19,8 +18,7 @@ import butterknife.ButterKnife;
 
 public class SavedFoodDetailActivity extends AppCompatActivity {
 
-    @Bind(R.id.viewPager)
-    ViewPager mViewPager;
+    @Bind(R.id.viewPager) ViewPager mViewPager;
     private SavedFoodPagerAdapter adapterViewPager;
     ArrayList<Food> mFoods;
 
