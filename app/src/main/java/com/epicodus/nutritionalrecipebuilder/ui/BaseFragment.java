@@ -35,8 +35,12 @@ public class BaseFragment extends Fragment {
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
     }
 
-    public void addToSharedPreferences(String nutrients) {
+    public void addFoodToSharedPreferences(String nutrients) {
         mSharedPreferencesEditor.putString(Constants.PREFERENCES_FOODS_KEY, nutrients).apply();
+    }
+
+    public void addIngredientToSharedPreferences(String ingredients) {
+        mSharedPreferencesEditor.putString(Constants.PREFERENCES_INGREDIENT_LIST, ingredients).apply();
     }
 
     public void logout() {

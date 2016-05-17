@@ -39,15 +39,46 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Saved Food"
+        android:text="My Saved Foods"
         android:id="@+id/savedFoodButton"
         android:background="@color/colorPurpleBright"
         android:textColor="@color/colorTextTertiary"
         android:visibility="visible"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_above="@+id/recipeButton"
         android:elevation="5dp"
         android:textStyle="bold"
         android:textSize="18sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Recipes"
+        android:id="@+id/recipeButton"
+        android:background="@color/colorGreenBright"
+        android:textColor="@color/colorTextSecondary"
+        android:visibility="visible"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/userRecipeButton"
+        android:elevation="5dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Saved Recipes"
+        android:id="@+id/userRecipeButton"
+        android:background="@color/colorPrimaryBright"
+        android:textColor="@color/colorTextTertiary"
+        android:visibility="visible"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:elevation="5dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp" />
 </RelativeLayout>

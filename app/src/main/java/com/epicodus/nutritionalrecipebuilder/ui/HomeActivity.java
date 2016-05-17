@@ -31,6 +31,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public static final String TAG = HomeActivity.class.getSimpleName();
     @Bind(R.id.continueButton) Button mContinueButton;
     @Bind(R.id.savedFoodButton) Button mSaveButton;
+    @Bind(R.id.recipeButton) Button mRecipeButton;
+    @Bind(R.id.userRecipeButton) Button mUserRecipeButton;
     private Firebase mFirebaseRef;
     private ValueEventListener mUserRefListener;
     private Firebase mUserRef;

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="2dp"
     android:elevation="7dp"
-    android:background="@color/colorPrimaryBright"
+    android:background="@color/colorComplementaryBright"
     android:alpha=".75">
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="Food Name"
-            android:textColor="@color/colorComplementary"
+            android:textColor="@color/colorPrimaryBright"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:id="@+id/foodNutrients"
             android:text="One Nutrient"
             android:textStyle="italic"
-            android:textColor="@color/colorComplementaryBright"
+            android:textColor="@color/colorGreenBright"
             />
         <RelativeLayout
             android:layout_width="match_parent"

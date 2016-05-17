@@ -28,7 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.NutritionPickActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -36,8 +36,8 @@
         </activity>
         <activity android:name=".ui.FoodListActivity">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.nutritionalrecipebuilder.ui.NutritionPickActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.nutritionalrecipebuilder.ui.NutritionPickActivity" />
         </activity>
         <activity android:name=".ui.RecipeResultsActivity">
             <meta-data
@@ -54,6 +54,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.HomeActivity" />
         </activity>
+        <activity android:name=".ui.SavedFoodDetailActivity" />
+        <activity android:name=".ui.SavedRecipeListActivity" />
+        <activity android:name=".ui.SavedRecipeDetailActivity"></activity>
     </application>
 
 </manifest>

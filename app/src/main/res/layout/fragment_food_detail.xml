@@ -55,6 +55,8 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="Save Food"
+       android:textSize="18sp"
+       android:textStyle="bold"
        android:id="@+id/saveFoodButton"
        android:background="@color/colorPurpleBright"
        android:textColor="@color/colorTextTertiary"
