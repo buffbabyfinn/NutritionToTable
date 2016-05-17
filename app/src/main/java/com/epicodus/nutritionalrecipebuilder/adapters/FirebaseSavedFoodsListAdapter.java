@@ -23,76 +23,76 @@ import java.util.Collections;
 /**
  * Created by Guest on 5/17/16.
  */
-//public class FirebaseSavedFoodsListAdapter extends FirebaseRecyclerAdapter<FoodViewHolder, Food> implements ItemTouchHelperAdapter {
-//    private final OnStartDragListener mDragStartListener;
-//    private Context mContext;
-//
-//
-//    public FirebaseSavedFoodsListAdapter(Query query, Class<Food> itemClass, OnStartDragListener dragStartListener) {
-//        super(query, itemClass);
-//        mDragStartListener = dragStartListener;
-//    }
-//
-//    @Override
-//    public SavedFoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        mContext = parent.getContext();
-//        View view = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.food_list_item_drag, parent, false);
-//        return new SavedFoodViewHolder(view, getItems());
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(final FoodViewHolder holder, int position) {
-//        holder.bindFood(getItem(position));
-//        holder.mNameView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-//                    mDragStartListener.onStartDrag(holder);
-//                }
-//                return false;
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public boolean onItemMove(int fromPosition, int toPosition) {
-//        Collections.swap(getItems(), fromPosition, toPosition);
-//        notifyItemMoved(fromPosition, toPosition);
-//        return true;
-//    }
-//
-//    @Override
-//    public void onItemDismiss(int position) {
-//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-//        String uid = sharedPreferences.getString(Constants.KEY_UID, null);
-//        Firebase ref = new Firebase(Constants.FIREBASE_URL_FOODS).child(uid);
-//        String foodKey = getItem(position).getPushId();
-//        ref.child(foodKey).removeValue();
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return getItems().size();
-//    }
-//
-//    @Override
-//    protected void itemAdded(Food item, String key, int position) {
-//
-//    }
-//
-//    @Override
-//    protected void itemChanged(Food oldItem, Food newItem, String key, int position) {
-//
-//    }
-//
-//    @Override
-//    protected void itemRemoved(Food item, String key, int position) {
-//
-//    }
-//
-//    @Override
-//    protected void itemMoved(Food item, String key, int oldPosition, int newPosition) {
-//
-//    }
-//}
+public class FirebaseSavedFoodsListAdapter extends FirebaseRecyclerAdapter<SavedFoodViewHolder, Food> implements ItemTouchHelperAdapter {
+    private final OnStartDragListener mDragStartListener;
+    private Context mContext;
+
+
+    public FirebaseSavedFoodsListAdapter(Query query, Class<Food> itemClass, OnStartDragListener dragStartListener) {
+        super(query, itemClass);
+        mDragStartListener = dragStartListener;
+    }
+
+    @Override
+    public SavedFoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.food_list_item_drag, parent, false);
+        return new SavedFoodViewHolder(view, getItems());
+    }
+
+    @Override
+    public void onBindViewHolder(final SavedFoodViewHolder holder, int position) {
+        holder.bindFood(getItem(position));
+        holder.mNameView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mDragStartListener.onStartDrag(holder);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        Collections.swap(getItems(), fromPosition, toPosition);
+        notifyItemMoved(fromPosition, toPosition);
+        return true;
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String uid = sharedPreferences.getString(Constants.KEY_UID, null);
+        Firebase ref = new Firebase(Constants.FIREBASE_URL_FOODS).child(uid);
+        String foodKey = getItem(position).getPushId();
+        ref.child(foodKey).removeValue();
+    }
+
+    @Override
+    public int getItemCount() {
+        return getItems().size();
+    }
+
+    @Override
+    protected void itemAdded(Food item, String key, int position) {
+
+    }
+
+    @Override
+    protected void itemChanged(Food oldItem, Food newItem, String key, int position) {
+
+    }
+
+    @Override
+    protected void itemRemoved(Food item, String key, int position) {
+
+    }
+
+    @Override
+    protected void itemMoved(Food item, String key, int oldPosition, int newPosition) {
+
+    }
+}
