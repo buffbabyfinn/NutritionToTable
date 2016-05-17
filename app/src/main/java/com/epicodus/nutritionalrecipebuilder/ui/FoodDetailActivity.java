@@ -4,6 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.adapters.FoodPagerAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
@@ -26,8 +27,9 @@ public class FoodDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
         ButterKnife.bind(this);
-        mFoods = Parcels.unwrap(getIntent().getParcelableExtra("foods"));
-        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+
+        mFoods = Parcels.unwrap(getIntent().getParcelableExtra(Constants.EXTRA_KEY_FOODS));
+        Integer startingPosition = Integer.parseInt(getIntent().getStringExtra(Constants.EXTRA_KEY_POSITION));
         adapterViewPager = new FoodPagerAdapter(getSupportFragmentManager(), mFoods);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);

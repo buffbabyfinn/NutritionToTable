@@ -31,12 +31,10 @@ import butterknife.ButterKnife;
 public class SavedFoodDetailFragment extends BaseFragment implements View.OnClickListener {
 
 
-    @Bind(R.id.foodNameTextView)
-    TextView mFoodView;
+    @Bind(R.id.foodNameTextView) TextView mFoodView;
     @Bind(R.id.foodMeasureTextView) TextView mMeasureView;
     @Bind(R.id.foodNutrientsTextView) TextView mNutrientsView;
-    @Bind(R.id.saveRecipeFoodButton)
-    Button mSaveFoodButton;
+    @Bind(R.id.saveRecipeFoodButton) Button mSaveFoodButton;
 
     private Food mFood;
     private Integer mPosition;
@@ -45,15 +43,15 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     private SharedPreferences.Editor mRecipePrefEditor;
     private ArrayList<String> mRecipeList = new ArrayList<>();
 
-    public static FoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
-        FoodDetailFragment foodDetailFragment = new FoodDetailFragment();
+    public static SavedFoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
+        SavedFoodDetailFragment savedFoodDetailFragment = new SavedFoodDetailFragment();
         Bundle args = new Bundle();
 
         args.putParcelable(Constants.EXTRA_KEY_FOODS, Parcels.wrap(foods));
         args.putInt(Constants.EXTRA_KEY_POSITION, position);
 
-        foodDetailFragment.setArguments(args);
-        return foodDetailFragment;
+        savedFoodDetailFragment.setArguments(args);
+        return savedFoodDetailFragment;
     }
 
     @Override
@@ -68,7 +66,7 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_food_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_saved_food_detail, container, false);
         ButterKnife.bind(this, view);
         mSaveFoodButton.setOnClickListener(this);
         mFoodView.setText(mFood.getName());
