@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     private Integer mPosition;
     private ArrayList<Food> mFoods;
     private SharedPreferences mRecipeSharedPreferences;
+    private SharedPreferences.Editor mRecipePrefEditor;
     private ArrayList<String> mRecipeList = new ArrayList<>();
 
     public static FoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
@@ -79,17 +81,19 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.saveRecipeFoodButton:
-                mRecipeSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                mRecipePrefEditor = mRecipeSharedPreferences.edit();
+                String ingredients = mRecipeSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_LIST, null);
+
                 String ingredientName = mFood.getName();
                 String[] ingredient = ingredientName.split(",");
                 mRecipeList.add(ingredient[0]);
                 mRecipeList.add(ingredient[1]);
                 mRecipeList.add(ingredient[2]);
-                String ingredients = "";
                 for (String s : mRecipeList) {
                     ingredients += s + " ";
                 }
                 addIngredientToSharedPreferences(ingredients);
+                Log.d("Ingredient List", ingredients);
                 Toast.makeText(getContext(), "Added!", Toast.LENGTH_SHORT).show();
         }
     }

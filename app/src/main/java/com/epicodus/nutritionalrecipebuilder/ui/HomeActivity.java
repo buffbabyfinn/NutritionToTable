@@ -96,6 +96,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
            case R.id.savedFoodButton:
                Intent intent = new Intent(HomeActivity.this, SavedFoodListActivity.class);
                startActivity(intent);
+               break;
+           case R.id.recipeButton:
+               break;
+           case R.id.userRecipeButton:
+               Intent userIntent = new Intent(HomeActivity.this, SavedRecipeListActivity.class);
+               startActivity(userIntent);
            default:
                break;
        }

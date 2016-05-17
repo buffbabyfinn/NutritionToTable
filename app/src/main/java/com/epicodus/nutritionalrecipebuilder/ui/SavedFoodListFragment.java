@@ -1,6 +1,7 @@
 package com.epicodus.nutritionalrecipebuilder.ui;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.adapters.FirebaseFoodsListAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
+import com.epicodus.nutritionalrecipebuilder.util.OnFoodSelectedListener;
 import com.epicodus.nutritionalrecipebuilder.util.OnStartDragListener;
 import com.epicodus.nutritionalrecipebuilder.util.SimpleItemTouchHelperCallback;
 import com.firebase.client.Firebase;
@@ -31,12 +33,22 @@ public class SavedFoodListFragment extends BaseFragment implements OnStartDragLi
     private Firebase mFirebaseFoodsRef;
     private FirebaseFoodsListAdapter mAdapter;
     private ItemTouchHelper mItemTouchHelper;
-
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    OnFoodSelectedListener mFoodSelectedListener;
 
 
     public SavedFoodListFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mFoodSelectedListener = (OnFoodSelectedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
     }
 
     @Override
