@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.epicodus.nutritionalrecipebuilder">
+    package="com.epicodus.nutritionalrecipebuilder" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,46 +10,41 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        android:theme="@style/AppTheme" >
+        <activity android:name=".ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SignUpActivity">
+        <activity android:name=".ui.SignUpActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.SignInActivity">
+        <activity android:name=".ui.SignInActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.NutritionPickActivity">
+        <activity android:name=".ui.NutritionPickActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.HomeActivity" />
         </activity>
-        <activity android:name=".ui.FoodListActivity">
+        <activity android:name=".ui.FoodListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.NutritionPickActivity" />
         </activity>
-        <activity android:name=".ui.RecipeResultsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.nutritionalrecipebuilder.ui.NutritionPickActivity" />
-        </activity>
-        <activity android:name=".ui.FoodDetailActivity">
+        <activity android:name=".ui.FoodDetailActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.FoodListActivity" />
         </activity>
-        <activity android:name=".ui.SavedFoodListActivity">
+        <activity android:name=".ui.SavedFoodListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.HomeActivity" />
@@ -60,7 +55,9 @@
                 android:value="com.epicodus.nutritionalrecipebuilder.ui.SavedFoodListActivity" />
         </activity>
         <activity android:name=".ui.SavedRecipeListActivity" />
-        <activity android:name=".ui.SavedRecipeDetailActivity"></activity>
+        <activity android:name=".ui.SavedRecipeDetailActivity" />
+        <activity android:name=".ui.RecipeListActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -60,7 +60,21 @@
         android:textStyle="bold"
         android:background="@color/colorPurpleBright"
         android:textColor="@color/colorTextTertiary"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="bottom" />
+        />
 
-</FrameLayout>
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Clear Ingredient List"
+         android:id="@+id/clearIngredientsButton"
+         android:textSize="18sp"
+         android:textStyle="bold"
+         android:background="@color/colorGreenBright"
+         android:textColor="@color/colorTextSecondary"
+         android:layout_gravity="right|bottom"
+         android:layout_marginBottom="60dp"
+         />
+
+ </FrameLayout>

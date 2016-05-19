@@ -52,6 +52,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         mContinueButton.setOnClickListener(this);
         mSaveButton.setOnClickListener(this);
+        mUserRecipeButton.setOnClickListener(this);
+        mRecipeButton.setOnClickListener(this);
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
         mUserRefListener = mUserRef.addValueEventListener(new ValueEventListener() {
@@ -98,6 +100,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                startActivity(intent);
                break;
            case R.id.recipeButton:
+               Intent recipeIntent = new Intent(HomeActivity.this,RecipeListActivity.class);
+               startActivity(recipeIntent);
                break;
            case R.id.userRecipeButton:
                Intent userIntent = new Intent(HomeActivity.this, SavedRecipeListActivity.class);

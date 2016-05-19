@@ -7,20 +7,26 @@ import java.util.ArrayList;
  */
 public class Recipe {
     private String recipeName;
-    private ArrayList<String> ingredients;
+    private double rating;
     private String smallImageUrls;
-    private ArrayList<Double> flavours;
-
-
-    private Double rating;
+    private double sweet;
+    private double sour;
+    private double piquant;
+    private double bitter;
+    private double umami;
+    private ArrayList<String> ingredients;
     private String pushId;
 
-    public Recipe(String recipeName, ArrayList<String> ingredients, String smallImageUrls, ArrayList<Double> flavours, Double rating) {
+    public Recipe(String recipeName, double rating, String smallImageUrls, double sweet, double sour, double piquant, double umami, double bitter, ArrayList<String> ingredients) {
         this.recipeName = recipeName;
-        this.ingredients = ingredients;
-        this.smallImageUrls = smallImageUrls;
-        this.flavours = flavours;
         this.rating = rating;
+        this.smallImageUrls = smallImageUrls;
+        this.sweet = sweet;
+        this.sour = sour;
+        this.piquant = piquant;
+        this.umami = umami;
+        this.bitter = bitter;
+        this.ingredients = ingredients;
     }
 
     public String getRecipeName() {
@@ -35,12 +41,28 @@ public class Recipe {
         return smallImageUrls;
     }
 
-    public ArrayList<Double> getFlavours() {
-        return flavours;
-    }
-
     public Double getRating() {
         return rating;
+    }
+
+    public double getSweet() {
+        return sweet;
+    }
+
+    public double getSour() {
+        return sour;
+    }
+
+    public double getPiquant() {
+        return piquant;
+    }
+
+    public double getBitter() {
+        return bitter;
+    }
+
+    public double getUmami() {
+        return umami;
     }
 
     public String getPushId() {

@@ -35,12 +35,14 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     @Bind(R.id.foodMeasureTextView) TextView mMeasureView;
     @Bind(R.id.foodNutrientsTextView) TextView mNutrientsView;
     @Bind(R.id.saveRecipeFoodButton) Button mSaveFoodButton;
+    @Bind(R.id.clearIngredientsButton) Button mClearButton;
 
     private Food mFood;
     private Integer mPosition;
     private ArrayList<Food> mFoods;
-    private SharedPreferences mRecipeSharedPreferences;
+    private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mRecipePrefEditor;
+    private String mIngredients;
     private ArrayList<String> mRecipeList = new ArrayList<>();
 
     public static SavedFoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
@@ -61,6 +63,8 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
         mFood = mFoods.get(mPosition);
+        mRecipePrefEditor = mSharedPreferences.edit();
+        mIngredients = mSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_LIST, null);
     }
 
     @Override
@@ -69,6 +73,7 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
         View view = inflater.inflate(R.layout.fragment_saved_food_detail, container, false);
         ButterKnife.bind(this, view);
         mSaveFoodButton.setOnClickListener(this);
+        mClearButton.setOnClickListener(this);
         mFoodView.setText(mFood.getName());
         mMeasureView.setText(mFood.getMeasure());
         mNutrientsView.setText(android.text.TextUtils.join(", ", mFood.getNutrient()));
@@ -79,20 +84,28 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.saveRecipeFoodButton:
-                mRecipePrefEditor = mRecipeSharedPreferences.edit();
-                String ingredients = mRecipeSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_LIST, null);
-
+                String spaces = "[ ]";
                 String ingredientName = mFood.getName();
                 String[] ingredient = ingredientName.split(",");
+                ingredient[0] = " " + ingredient[0];
                 mRecipeList.add(ingredient[0]);
                 mRecipeList.add(ingredient[1]);
-                mRecipeList.add(ingredient[2]);
-                for (String s : mRecipeList) {
-                    ingredients += s + " ";
+                if (ingredient.length > 2) {
+                    mRecipeList.add(ingredient[2]);
                 }
-                addIngredientToSharedPreferences(ingredients);
-                Log.d("Ingredient List", ingredients);
+                for (String s : mRecipeList) {
+                    mIngredients += s ;
+                }
+                String formattedIngredients = mIngredients.replaceAll(spaces, "+");
+                addIngredientToSharedPreferences(formattedIngredients);
+                Log.d("Ingredient List", formattedIngredients);
                 Toast.makeText(getContext(), "Added!", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.clearIngredientsButton:
+                mRecipePrefEditor.clear().commit();
+                break;
+            default:
+                break;
         }
     }
 

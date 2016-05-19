@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.adapters.FirebaseFoodsListAdapter;
+import com.epicodus.nutritionalrecipebuilder.adapters.FirebaseSavedFoodsListAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Food;
 import com.epicodus.nutritionalrecipebuilder.util.OnFoodSelectedListener;
 import com.epicodus.nutritionalrecipebuilder.util.OnStartDragListener;
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
 public class SavedFoodListFragment extends BaseFragment implements OnStartDragListener {
     private Query mQuery;
     private Firebase mFirebaseFoodsRef;
-    private FirebaseFoodsListAdapter mAdapter;
+    private FirebaseSavedFoodsListAdapter mAdapter;
     private ItemTouchHelper mItemTouchHelper;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     OnFoodSelectedListener mFoodSelectedListener;
@@ -74,7 +75,7 @@ public class SavedFoodListFragment extends BaseFragment implements OnStartDragLi
     }
 
     private void setUpRecyclerView() {
-        mAdapter = new FirebaseFoodsListAdapter(mQuery, Food.class, this);
+        mAdapter = new FirebaseSavedFoodsListAdapter(mQuery, Food.class, this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mAdapter);
 
