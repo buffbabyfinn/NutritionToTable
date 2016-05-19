@@ -25,7 +25,6 @@ import okhttp3.Response;
  * Created by Guest on 5/16/16.
  */
 public class RecipeService {
-    //public static String processIngredients(){}
 
     public static void findRecipes(String searchTerms, Callback callback) {
         String RECIPE_CONSUMER_KEY = Constants.RECIPE_CONSUMER_KEY;
@@ -38,30 +37,25 @@ public class RecipeService {
         String urlFront = urlBuilder.toString();
         String urlComplete = urlFront + Constants.RECIPE_ID_PARAMETER + RECIPE_APP_ID + Constants.RECIPE_KEY_PARAMETER + RECIPE_CONSUMER_KEY + Constants.RECIPE_SEARCH_PARAMETER + searchTerms;
 
+        Log.d("URL", urlComplete);
+
         Request request = new Request.Builder()
                 .url(urlComplete)
                 .build();
 
         Call call = client.newCall(request);
         call.enqueue(callback);
-        Log.d("made it", urlComplete);
-        Log.d("made it", "I made it to findRecipes!");
     }
 
     public ArrayList<Recipe> processResults(Response response) {
         ArrayList<Recipe> recipes = new ArrayList<>();
-        Log.d("made it", "I made it to processResults!");
 
         try {
             String jsonData = response.body().string();
+            Log.d("JSONdATA", jsonData);
             if (response.isSuccessful()) {
                 JSONObject json = new JSONObject(jsonData);
                 JSONArray matchesJSON = json.getJSONArray("matches");
-
-                String attributionUrl = json.getJSONObject("attribution").getString("url");
-                String attributionText = json.getJSONObject("attribution").getString("text");
-                String attributionImageUrl = json.getJSONObject("attribution").getString("logo");
-                Log.d("made it url", attributionUrl);
 
                 for (int i = 0; i < matchesJSON.length(); i++) {
                     JSONObject recipesJSON = matchesJSON.getJSONObject(i);
@@ -70,24 +64,21 @@ public class RecipeService {
                     double rating = recipesJSON.getDouble("rating");
                     String smallImageUrl = recipesJSON.getJSONArray("smallImageUrls").toString();
 
-                    JSONObject flavorsJSON = recipesJSON.getJSONObject("flavors");
-                    double sweet = flavorsJSON.getDouble("sweet");
-                    double piquant = flavorsJSON.getDouble("piquant");
-                    double sour = flavorsJSON.getDouble("sour");
-                    double umami = flavorsJSON.getDouble("meaty");
-                    double bitter = flavorsJSON.getDouble("bitter");
-
                     ArrayList<String> ingredients = new ArrayList<>();
                     JSONArray ingredientsJSON = recipesJSON.getJSONArray("ingredients");
                     for (int y = 0; y < ingredientsJSON.length(); y++) {
-                        String ingredientName = ingredientsJSON.getJSONObject(y).get("ingredient").toString();
+                        String ingredientName = ingredientsJSON.get(y).toString();
                         ingredients.add(ingredientName);
                     }
 
-                    Recipe recipe = new Recipe(recipeName, rating, sourceDisplayName, smallImageUrl, sweet, sour, piquant, umami, bitter, ingredients, attributionUrl, attributionText, attributionImageUrl);
+                    String attributionUrl = json.getJSONObject("attribution").getString("url");
+                    String attributionText = json.getJSONObject("attribution").getString("text");
+                    String attributionImageUrl = json.getJSONObject("attribution").getString("logo");
+
+                    Recipe recipe = new Recipe(recipeName, rating, sourceDisplayName, smallImageUrl, ingredients, attributionUrl, attributionText, attributionImageUrl);
                     recipes.add(recipe);
-                    Log.d("made it name", recipe.getRecipeName());
                 }
+                Log.d("made it", "log recipes" + recipes.toString());
 
             }
         } catch (IOException e) {

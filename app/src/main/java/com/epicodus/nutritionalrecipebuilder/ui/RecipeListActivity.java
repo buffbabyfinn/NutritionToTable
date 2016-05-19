@@ -4,12 +4,15 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
+import com.epicodus.nutritionalrecipebuilder.adapters.RecipeListAdapter;
 import com.epicodus.nutritionalrecipebuilder.models.Recipe;
 import com.epicodus.nutritionalrecipebuilder.services.RecipeService;
 
@@ -27,7 +30,8 @@ public class RecipeListActivity extends AppCompatActivity {
     private SharedPreferences mSP;
     private String mRecipeSearch;
     public ArrayList<Recipe> mRecipes;
-    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private RecipeListAdapter mAdapter;
 
 
     @Override
@@ -37,7 +41,6 @@ public class RecipeListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mSP = PreferenceManager.getDefaultSharedPreferences(this);
         mRecipeSearch = mSP.getString(Constants.PREFERENCES_INGREDIENT_LIST, null);
-        Log.d("made it", "I'm about to get the recipes!");
         getRecipes(mRecipeSearch);
     }
 
@@ -57,18 +60,11 @@ public class RecipeListActivity extends AppCompatActivity {
                 RecipeListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
-                        String[] recipeNames = new String[mRecipes.size()];
-                        for (int i = 0; i < recipeNames.length; i++) {
-                            recipeNames[i] = mRecipes.get(i).getRecipeName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(RecipeListActivity.this, android.R.layout.simple_list_item_1, recipeNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Recipe recipe : mRecipes) {
-                            Log.d("made it", "Name: " + recipe.getRecipeName());
-                            Log.d("made it", "Image Source: " + recipe.getSmallImageUrl());
-                        }
+                        mAdapter = new RecipeListAdapter(getApplicationContext(), mRecipes);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeListActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }

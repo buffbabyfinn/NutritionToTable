@@ -65,7 +65,8 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
         mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
         mFood = mFoods.get(mPosition);
         mRecipePrefEditor = mSharedPreferences.edit();
-        mIngredients = mSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_LIST, null);
+        mIngredients = mSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_LIST, "");
+
     }
 
     @Override
@@ -85,21 +86,8 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.saveRecipeFoodButton:
-                String spaces = "[ ]";
-                String ingredientName = mFood.getName();
-                String[] ingredient = ingredientName.split(",");
-                ingredient[0] = " " + ingredient[0];
-                mRecipeList.add(ingredient[0]);
-                mRecipeList.add(ingredient[1]);
-                if (ingredient.length > 2) {
-                    mRecipeList.add(ingredient[2]);
-                }
-                for (String s : mRecipeList) {
-                    mIngredients += s ;
-                }
-                mFormattedIngredients = mIngredients.replaceAll(spaces, "+");
+                formatIngredients();
                 addIngredientToSharedPreferences(mFormattedIngredients);
-                Log.d("Ingredient List", mFormattedIngredients);
                 Toast.makeText(getContext(), "Added!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clearIngredientsButton:
@@ -112,6 +100,33 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
 
     public void removeFromSharedPreferences() {
         mRecipePrefEditor.remove(Constants.PREFERENCES_INGREDIENT_LIST).commit();
+        Toast.makeText(getContext(), "Cleared!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void formatIngredients() {
+        String spaces = "[ ]";
+        String ingredientName = mFood.getName();
+        Log.d("made it 1", ingredientName);
+        String[] ingredient = ingredientName.split(",");
+        ingredient[0] = " " + ingredient[0];
+        Log.d("ingredient 0", ingredient[0]);
+        Log.d("ingredient 1", ingredient[1]);
+        Log.d("ingredient 2", ingredient[2]);
+
+        mRecipeList.add(ingredient[0]);
+        if (ingredient.length >= 2) {
+            mRecipeList.add(ingredient[1]);
+        }
+        if (ingredient.length >= 3) {
+            mRecipeList.add(ingredient[2]);
+        }
+        Log.d("mingredients", mIngredients.toString());
+
+        for (String s : mRecipeList) {
+            mIngredients +=  s ;
+        }
+        mFormattedIngredients = mIngredients.replaceAll(spaces, "+");
+        Log.d("made it 3", mFormattedIngredients);
     }
 
 }

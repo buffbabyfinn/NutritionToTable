@@ -15,11 +15,11 @@ public class Recipe {
     private String sourceDisplayName;
 
     private String smallImageUrl;
-    private double sweet;
-    private double sour;
-    private double piquant;
-    private double bitter;
-    private double umami;
+//    private double sweet;
+//    private double sour;
+//    private double piquant;
+//    private double bitter;
+//    private double umami;
     private ArrayList<String> ingredients;
     private String attributionUrl;
     private String attributionText;
@@ -28,16 +28,16 @@ public class Recipe {
     private Integer index;
     public Recipe() {}
 
-    public Recipe(String recipeName, double rating, String sourceDisplayName, String smallImageUrl, double sweet, double sour, double piquant, double umami, double bitter, ArrayList<String> ingredients, String attributionUrl, String attributionText, String attributionImageUrl) {
+    public Recipe(String recipeName, double rating, String sourceDisplayName, String smallImageUrl, ArrayList<String> ingredients, String attributionUrl, String attributionText, String attributionImageUrl) {
         this.recipeName = recipeName;
         this.rating = rating;
         this.sourceDisplayName = sourceDisplayName;
         this.smallImageUrl  = smallImageUrl;
-        this.sweet = sweet;
-        this.sour = sour;
-        this.piquant = piquant;
-        this.umami = umami;
-        this.bitter = bitter;
+//        this.sweet = sweet;
+//        this.sour = sour;
+//        this.piquant = piquant;
+//        this.umami = umami;
+//        this.bitter = bitter;
         this.ingredients = ingredients;
         this.attributionUrl = attributionUrl;
         this.attributionText = attributionText;
@@ -64,25 +64,25 @@ public class Recipe {
         return rating;
     }
 
-    public double getSweet() {
-        return sweet;
-    }
-
-    public double getSour() {
-        return sour;
-    }
-
-    public double getPiquant() {
-        return piquant;
-    }
-
-    public double getBitter() {
-        return bitter;
-    }
-
-    public double getUmami() {
-        return umami;
-    }
+//    public double getSweet() {
+//        return sweet;
+//    }
+//
+//    public double getSour() {
+//        return sour;
+//    }
+//
+//    public double getPiquant() {
+//        return piquant;
+//    }
+//
+//    public double getBitter() {
+//        return bitter;
+//    }
+//
+//    public double getUmami() {
+//        return umami;
+//    }
 
     public String getAttributionUrl() {
         return attributionUrl;
