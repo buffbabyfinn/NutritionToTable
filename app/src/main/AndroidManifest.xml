@@ -57,6 +57,9 @@
         <activity android:name=".ui.SavedRecipeListActivity" />
         <activity android:name=".ui.SavedRecipeDetailActivity" />
         <activity android:name=".ui.RecipeListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.nutritionalrecipebuilder.ui.HomeActivity" />
         </activity>
     </application>
 

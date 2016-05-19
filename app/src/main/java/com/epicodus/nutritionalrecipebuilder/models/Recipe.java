@@ -1,32 +1,47 @@
 package com.epicodus.nutritionalrecipebuilder.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
+@Parcel
 /**
  * Created by Megan on 5/16/2016.
  */
 public class Recipe {
     private String recipeName;
     private double rating;
-    private String smallImageUrls;
+
+    private String sourceDisplayName;
+
+    private String smallImageUrl;
     private double sweet;
     private double sour;
     private double piquant;
     private double bitter;
     private double umami;
     private ArrayList<String> ingredients;
+    private String attributionUrl;
+    private String attributionText;
+    private String attributionImageUrl;
     private String pushId;
+    private Integer index;
+    public Recipe() {}
 
-    public Recipe(String recipeName, double rating, String smallImageUrls, double sweet, double sour, double piquant, double umami, double bitter, ArrayList<String> ingredients) {
+    public Recipe(String recipeName, double rating, String sourceDisplayName, String smallImageUrl, double sweet, double sour, double piquant, double umami, double bitter, ArrayList<String> ingredients, String attributionUrl, String attributionText, String attributionImageUrl) {
         this.recipeName = recipeName;
         this.rating = rating;
-        this.smallImageUrls = smallImageUrls;
+        this.sourceDisplayName = sourceDisplayName;
+        this.smallImageUrl  = smallImageUrl;
         this.sweet = sweet;
         this.sour = sour;
         this.piquant = piquant;
         this.umami = umami;
         this.bitter = bitter;
         this.ingredients = ingredients;
+        this.attributionUrl = attributionUrl;
+        this.attributionText = attributionText;
+        this.attributionImageUrl = attributionImageUrl;
     }
 
     public String getRecipeName() {
@@ -37,8 +52,12 @@ public class Recipe {
         return ingredients;
     }
 
-    public String getSmallImageUrls() {
-        return smallImageUrls;
+    public String getSmallImageUrl() {
+        return smallImageUrl;
+    }
+
+    public String getSourceDisplayName() {
+        return sourceDisplayName;
     }
 
     public Double getRating() {
@@ -63,6 +82,18 @@ public class Recipe {
 
     public double getUmami() {
         return umami;
+    }
+
+    public String getAttributionUrl() {
+        return attributionUrl;
+    }
+
+    public String getAttributionText() {
+        return attributionText;
+    }
+
+    public String getAttributionImageUrl() {
+        return attributionImageUrl;
     }
 
     public String getPushId() {

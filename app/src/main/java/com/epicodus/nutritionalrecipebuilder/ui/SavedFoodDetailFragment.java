@@ -43,6 +43,7 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mRecipePrefEditor;
     private String mIngredients;
+    private String mFormattedIngredients;
     private ArrayList<String> mRecipeList = new ArrayList<>();
 
     public static SavedFoodDetailFragment newInstance(ArrayList<Food> foods, Integer position) {
@@ -96,17 +97,21 @@ public class SavedFoodDetailFragment extends BaseFragment implements View.OnClic
                 for (String s : mRecipeList) {
                     mIngredients += s ;
                 }
-                String formattedIngredients = mIngredients.replaceAll(spaces, "+");
-                addIngredientToSharedPreferences(formattedIngredients);
-                Log.d("Ingredient List", formattedIngredients);
+                mFormattedIngredients = mIngredients.replaceAll(spaces, "+");
+                addIngredientToSharedPreferences(mFormattedIngredients);
+                Log.d("Ingredient List", mFormattedIngredients);
                 Toast.makeText(getContext(), "Added!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clearIngredientsButton:
-                mRecipePrefEditor.clear().commit();
+                removeFromSharedPreferences();
                 break;
             default:
                 break;
         }
+    }
+
+    public void removeFromSharedPreferences() {
+        mRecipePrefEditor.remove(Constants.PREFERENCES_INGREDIENT_LIST).commit();
     }
 
 }

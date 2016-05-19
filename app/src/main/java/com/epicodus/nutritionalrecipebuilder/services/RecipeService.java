@@ -2,6 +2,7 @@ package com.epicodus.nutritionalrecipebuilder.services;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.models.Recipe;
@@ -35,7 +36,7 @@ public class RecipeService {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.RECIPE_BASE_URL).newBuilder();
         String urlFront = urlBuilder.toString();
-        String urlComplete = urlFront + Constants.RECIPE_ID_PARAMETER + RECIPE_APP_ID + Constants.RECIPE_KEY_PARAMETER + RECIPE_CONSUMER_KEY + "&" + searchTerms;
+        String urlComplete = urlFront + Constants.RECIPE_ID_PARAMETER + RECIPE_APP_ID + Constants.RECIPE_KEY_PARAMETER + RECIPE_CONSUMER_KEY + Constants.RECIPE_SEARCH_PARAMETER + searchTerms;
 
         Request request = new Request.Builder()
                 .url(urlComplete)
@@ -43,16 +44,24 @@ public class RecipeService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+        Log.d("made it", urlComplete);
+        Log.d("made it", "I made it to findRecipes!");
     }
 
     public ArrayList<Recipe> processResults(Response response) {
         ArrayList<Recipe> recipes = new ArrayList<>();
+        Log.d("made it", "I made it to processResults!");
 
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
                 JSONObject json = new JSONObject(jsonData);
                 JSONArray matchesJSON = json.getJSONArray("matches");
+
+                String attributionUrl = json.getJSONObject("attribution").getString("url");
+                String attributionText = json.getJSONObject("attribution").getString("text");
+                String attributionImageUrl = json.getJSONObject("attribution").getString("logo");
+                Log.d("made it url", attributionUrl);
 
                 for (int i = 0; i < matchesJSON.length(); i++) {
                     JSONObject recipesJSON = matchesJSON.getJSONObject(i);
@@ -75,6 +84,9 @@ public class RecipeService {
                         ingredients.add(ingredientName);
                     }
 
+                    Recipe recipe = new Recipe(recipeName, rating, sourceDisplayName, smallImageUrl, sweet, sour, piquant, umami, bitter, ingredients, attributionUrl, attributionText, attributionImageUrl);
+                    recipes.add(recipe);
+                    Log.d("made it name", recipe.getRecipeName());
                 }
 
             }

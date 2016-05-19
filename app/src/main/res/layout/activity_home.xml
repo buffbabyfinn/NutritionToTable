@@ -15,11 +15,17 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/usernameTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textSize="40sp"
         android:textAlignment="center"
-        android:textColor="@color/colorTextPrimary" />
+        android:textColor="@color/colorPurple"
+        android:shadowColor="@color/colorPurpleShadow"
+        android:shadowDx="-2"
+        android:shadowDy="2"
+        android:shadowRadius="0.01"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="match_parent"
