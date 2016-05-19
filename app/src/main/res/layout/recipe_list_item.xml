@@ -3,14 +3,14 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorGreenLight">
+    android:background="@color/colorGreenBright">
 
     <ImageView
         android:layout_width="130dp"
         android:layout_height="100dp"
         android:id="@+id/recipeImageView"
-        android:src="@drawable/foods"
         android:scaleType="centerCrop"
+        android:src="@drawable/foods"
         android:elevation="8dp"/>
 
     <LinearLayout
@@ -37,6 +37,7 @@
             android:layout_below="@+id/recipeNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:textColor="@color/colorComplementaryBright"
             android:textStyle="italic"/>
 
         <RelativeLayout

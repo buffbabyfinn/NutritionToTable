@@ -62,7 +62,8 @@ public class RecipeService {
                     String recipeName = recipesJSON.getString("recipeName");
                     String sourceDisplayName = recipesJSON.getString("sourceDisplayName");
                     double rating = recipesJSON.getDouble("rating");
-                    String smallImageUrl = recipesJSON.getJSONArray("smallImageUrls").toString();
+                    JSONArray smallImageUrlJSON = recipesJSON.getJSONArray("smallImageUrls");
+                    String smallImageUrl = smallImageUrlJSON.get(0).toString();
 
                     ArrayList<String> ingredients = new ArrayList<>();
                     JSONArray ingredientsJSON = recipesJSON.getJSONArray("ingredients");

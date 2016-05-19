@@ -4,28 +4,30 @@ import org.parceler.Parcel;
 
 import java.util.ArrayList;
 
-@Parcel
+
 /**
  * Created by Megan on 5/16/2016.
  */
+@Parcel
 public class Recipe {
-    private String recipeName;
-    private double rating;
+     String recipeName;
+    double rating;
 
-    private String sourceDisplayName;
+    String sourceDisplayName;
 
-    private String smallImageUrl;
+    String smallImageUrl;
 //    private double sweet;
 //    private double sour;
 //    private double piquant;
 //    private double bitter;
 //    private double umami;
-    private ArrayList<String> ingredients;
-    private String attributionUrl;
-    private String attributionText;
-    private String attributionImageUrl;
-    private String pushId;
-    private Integer index;
+    ArrayList<String> ingredients;
+    String attributionUrl;
+    String attributionText;
+    String attributionImageUrl;
+    String pushId;
+    Integer index;
+
     public Recipe() {}
 
     public Recipe(String recipeName, double rating, String sourceDisplayName, String smallImageUrl, ArrayList<String> ingredients, String attributionUrl, String attributionText, String attributionImageUrl) {
