@@ -1,6 +1,7 @@
 package com.epicodus.nutritionalrecipebuilder.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.models.Recipe;
+import com.epicodus.nutritionalrecipebuilder.ui.RecipeDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -55,8 +59,18 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         public RecipeViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int itemPosition = getLayoutPosition();
+                    Intent intent = new Intent(mContext, RecipeDetailActivity.class);
+                    intent.putExtra("position", itemPosition + "");
+                    intent.putExtra("recipes", Parcels.wrap(mRecipes));
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         public void bindRecipe(Recipe recipe) {
