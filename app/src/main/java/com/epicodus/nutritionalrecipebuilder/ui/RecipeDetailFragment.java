@@ -10,10 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.nutritionalrecipebuilder.Constants;
 import com.epicodus.nutritionalrecipebuilder.R;
 import com.epicodus.nutritionalrecipebuilder.models.Recipe;
+import com.firebase.client.Firebase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -24,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecipeDetailFragment extends BaseFragment {
+public class RecipeDetailFragment extends BaseFragment implements View.OnClickListener{
     @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
     @Bind(R.id.imageView) ImageView mRecipeImage;
     @Bind(R.id.ratingTextView) TextView mRatingTextView;
@@ -62,6 +66,7 @@ public class RecipeDetailFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
+        mSaveRecipeButton.setOnClickListener(this);
 
         Picasso.with(view.getContext()).load(mRecipe.getSmallImageUrl()).into(mRecipeImage);
         Picasso.with(view.getContext()).load(mRecipe.getAttributionImageUrl()).into(mSourceImageView);
@@ -72,6 +77,16 @@ public class RecipeDetailFragment extends BaseFragment {
         mSourceTextView.setText(mRecipe.getAttributionText());
         mSourceUrlView.setText(mRecipe.getAttributionUrl());
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.saveRecipeButton:
+                Firebase ref = new Firebase(Constants.FIREBASE_RECIPE_URL);
+                ref.push().setValue(mRecipe);
+                Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

@@ -20,7 +20,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@color/colorGreenBright"
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -34,7 +34,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
-                android:textColor="@color/colorComplementaryDark"
+                android:textColor="@color/colorPurple"
                 android:textStyle="bold" />
 
             <TextView
@@ -56,13 +56,14 @@
                 android:layout_below="@+id/recipeNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/colorGreenDark"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="italic" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPurpleBright">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -70,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
-                android:background="@color/colorComplementaryDark"
+                android:background="@color/colorPurpleBright"
                 android:paddingRight="30dp"
                 android:layout_above="@+id/saveRecipeButton">
 
@@ -80,7 +81,7 @@
                     android:text="Ingredients"
                     android:id="@+id/ingredientView"
                     android:drawablePadding="4dp"
-                    android:textColor="@color/colorTextTertiary"
+                    android:textColor="@color/colorComplementary"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
@@ -119,9 +120,10 @@
                 android:text="Save Recipe"
                 android:id="@+id/saveRecipeButton"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorGreenDark"
+                android:background="@color/colorComplementaryBright"
                 android:textColor="@color/colorTextTertiary"
-                android:textSize="15sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
 

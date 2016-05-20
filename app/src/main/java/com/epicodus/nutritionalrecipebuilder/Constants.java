@@ -42,5 +42,8 @@ public class Constants {
     public static final String RECIPE_SEARCH_PARAMETER = "&q=";
     public static final String RECIPE_ALLOWED_INGREDIENT_PARAMETER = "&allowedIngredient[]=";
 
+    public static final String FIREBASE_RECIPE_RECIPE = "recipes";
+    public static final String FIREBASE_RECIPE_URL = FIREBASE_URL + "/" + FIREBASE_RECIPE_RECIPE;
+
 
 }
